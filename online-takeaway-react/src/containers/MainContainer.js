@@ -8,7 +8,7 @@ const MainContainer = () => {
       <Router>
       <Fragment>
       <Switch>
-        <Route path="/traditionalmenu" component={TraditionalMenuContainer} />
+        <Route path="" component={TraditionalMenuContainer} />
       </Switch>
 
 

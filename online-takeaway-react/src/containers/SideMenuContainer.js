@@ -1,25 +1,25 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Request from '../helpers/request';
-import TraditionalMenuList from '../components/traditionalmenu/TraditionalMenuList';
+import SideMenuList from '../components/traditionalmenu/SideMenuList';
 
 
-class TraditionalMenuContainer extends Component {
+class SideMenuContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      traditionalMenu: []
-    };
+      sideMenu: []
+    }
   }
 
   componentDidMount(){
     const request = new Request();
-    const traditionalMenuPromise = request.get('/traditionalmenu')
+    const traditionalMenuPromise = request.get('/sidemenu')
 
-    Promise.all([traditionalMenuPromise])
+    Promise.all([sideMenuPromise])
     .then((data) => {
       this.setState({
-        traditionalMenu: data[0]
+        sideMenu: data[0]
       })
     })
 
@@ -27,7 +27,7 @@ class TraditionalMenuContainer extends Component {
 
   render(){
 
-    if(!this.state.traditionalMenu){
+    if(!this.state.sideMenu){
       return null;
     }
 
@@ -37,7 +37,7 @@ class TraditionalMenuContainer extends Component {
       <Switch>
 
       <Route render={(props) => {
-        return <TraditionalMenuList traditionalMenu={this.state.traditionalMenu}/>
+        return <SideMenuList traditionalMenu={this.state.sideMenu}/>
       }} />
 
       </Switch>
@@ -47,4 +47,4 @@ class TraditionalMenuContainer extends Component {
   }
 }
 
-export default TraditionalMenuContainer;
+export default SideMenuContainer;

@@ -7,12 +7,13 @@ const TraditionalMenu = ({traditionalMenu}) => {
   }
 
   return (
-    <Fragment>
-    <p>{traditionalMenu.name}</p>
-    <p>Single Price: {traditionalMenu.price}</p>
-    <p>Supper Price: {traditionalMenu.supperPrice}</p>
-    <p>Description: {traditionalMenu.description}</p>
-    </Fragment>
+    <div>
+    <div class="flex-container">
+      <p class="flex-item1">{traditionalMenu.name}</p>
+      <p class="flex-item2">Single Price: £{traditionalMenu.price}</p>
+      <p>ORDER</p>
+    </div>
+    </div>
   )
 }
 
