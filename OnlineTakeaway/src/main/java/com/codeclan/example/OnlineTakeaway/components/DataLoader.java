@@ -1,13 +1,7 @@
 package com.codeclan.example.OnlineTakeaway.components;
 
-import com.codeclan.example.OnlineTakeaway.models.Order;
-import com.codeclan.example.OnlineTakeaway.models.SideMenu;
-import com.codeclan.example.OnlineTakeaway.models.TraditionalMenu;
-import com.codeclan.example.OnlineTakeaway.models.User;
-import com.codeclan.example.OnlineTakeaway.repositories.OrderRepository;
-import com.codeclan.example.OnlineTakeaway.repositories.SideMenuRepository;
-import com.codeclan.example.OnlineTakeaway.repositories.TraditionalMenuRepository;
-import com.codeclan.example.OnlineTakeaway.repositories.UserRepository;
+import com.codeclan.example.OnlineTakeaway.models.*;
+import com.codeclan.example.OnlineTakeaway.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -27,6 +21,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     SideMenuRepository sideMenuRepository;
+
+    @Autowired
+    DessertMenuRepository dessertMenuRepository;
 
 
     public DataLoader() {
@@ -107,8 +104,29 @@ public class DataLoader implements ApplicationRunner {
         TraditionalMenu friedPizzaCrunch = new TraditionalMenu("Fried Pizza Crunch", 5.90, 6.80, "Fried Pizza in batter");
         traditionalMenuRepository.save(friedPizzaCrunch);
 
-        SideMenu chips = new SideMenu("chips", 2.90, "");
+        SideMenu chips = new SideMenu("chips", 2.95, "");
         sideMenuRepository.save(chips);
+
+        SideMenu onionRings = new SideMenu("Onion Rings", 2.99, "6 onion rings");
+        sideMenuRepository.save(onionRings);
+
+        SideMenu pickledOnion = new SideMenu("Pickled Onion", 0.80, "");
+        sideMenuRepository.save(pickledOnion);
+
+        SideMenu currySauce = new SideMenu("Curry Sauce", 2.70, "");
+        sideMenuRepository.save(currySauce);
+
+        DessertMenu cookies = new DessertMenu("Choc Chip Cookies", 3.49, "4 large cookies with chocolate chip");
+        dessertMenuRepository.save(cookies);
+
+        DessertMenu vanillaIceCream = new DessertMenu("Vanilla Ice Cream", 4.49, "450ml tub of vanilla ice cream");
+        dessertMenuRepository.save(vanillaIceCream);
+
+        DessertMenu strawberryIceCream = new DessertMenu("Strawberry Ice Cream", 4.49, "450ml tub of strawberry ice cream");
+        dessertMenuRepository.save(strawberryIceCream);
+
+        DessertMenu chocolateIceCream = new DessertMenu("Chocolate Ice Cream", 4.49, "450ml tub of chocolate ice cream");
+        dessertMenuRepository.save(chocolateIceCream);
 
         User user = new User("Oscar", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
         User user2 = new User("Kira", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
