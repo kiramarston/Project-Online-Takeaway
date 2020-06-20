@@ -1,9 +1,11 @@
 package com.codeclan.example.OnlineTakeaway.components;
 
 import com.codeclan.example.OnlineTakeaway.models.Order;
+import com.codeclan.example.OnlineTakeaway.models.SideMenu;
 import com.codeclan.example.OnlineTakeaway.models.TraditionalMenu;
 import com.codeclan.example.OnlineTakeaway.models.User;
 import com.codeclan.example.OnlineTakeaway.repositories.OrderRepository;
+import com.codeclan.example.OnlineTakeaway.repositories.SideMenuRepository;
 import com.codeclan.example.OnlineTakeaway.repositories.TraditionalMenuRepository;
 import com.codeclan.example.OnlineTakeaway.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     OrderRepository orderRepository;
+
+    @Autowired
+    SideMenuRepository sideMenuRepository;
 
 
     public DataLoader() {
@@ -101,6 +106,9 @@ public class DataLoader implements ApplicationRunner {
 
         TraditionalMenu friedPizzaCrunch = new TraditionalMenu("Fried Pizza Crunch", 5.90, 6.80, "Fried Pizza in batter");
         traditionalMenuRepository.save(friedPizzaCrunch);
+
+        SideMenu chips = new SideMenu("chips", 2.90, "");
+        sideMenuRepository.save(chips);
 
         User user = new User("Oscar", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
         User user2 = new User("Kira", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");

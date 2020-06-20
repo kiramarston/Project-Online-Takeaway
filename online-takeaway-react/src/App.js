@@ -5,27 +5,31 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {show: false};
+    this.state = {
+      traditionalMenuShow: false,
+      sideMenuShow: false
+    };
 
-    this.handleToggle = this.handleToggle.bind(this)
+    this.handleTraditionalMenuToggle = this.handleTraditionalMenuToggle.bind(this)
   }
 
-  handleToggle(){
-    const {show} = this.state;
-    this.setState( {show: !show} )
+  handleTraditionalMenuToggle(){
+    this.setState({
+      traditionalMenuShow: !this.state.traditionalMenuShow
+    })
   }
 
   render() {
 
-    if (!this.state.show) {
+    if (!this.state.traditionalMenuShow) {
       return (
-        <p onClick={ this.handleToggle}>Traditional Menu</p>
+        <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
       )
     }
 
     return (
       <div>
-      <p onClick={ this.handleToggle}>Traditional Menu</p>
+      <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
       <MainContainer/>
       </div>
     );

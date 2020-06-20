@@ -8,9 +8,9 @@ const TraditionalMenu = ({traditionalMenu}) => {
 
   return (
     <div>
-    <div class="flex-container">
-      <p class="flex-item1">{traditionalMenu.name}</p>
-      <p class="flex-item2">Single Price: £{traditionalMenu.price}</p>
+    <div className="flex-container">
+      <p className="flex-item1">{traditionalMenu.name}</p>
+      <p className="flex-item2">Single Price: £{traditionalMenu.price}</p>
       <p>ORDER</p>
     </div>
     </div>

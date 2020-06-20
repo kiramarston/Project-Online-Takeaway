@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Request from '../helpers/request';
-import SideMenuList from '../components/traditionalmenu/SideMenuList';
+import SideMenuList from '../components/sideMenu/SideMenuList';
 
 
 class SideMenuContainer extends Component {
@@ -14,7 +14,7 @@ class SideMenuContainer extends Component {
 
   componentDidMount(){
     const request = new Request();
-    const traditionalMenuPromise = request.get('/sidemenu')
+    const sideMenuPromise = request.get('/sidemenu')
 
     Promise.all([sideMenuPromise])
     .then((data) => {

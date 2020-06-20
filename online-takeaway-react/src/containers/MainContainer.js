@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import TraditionalMenuContainer from './TraditionalMenuContainer';
+import SideMenuContainer from './SideMenuContainer';
 
 const MainContainer = () => {
 
