@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import MainContainer from './containers/MainContainer'
+import MainContainer from './containers/MainContainer';
+import TraditionalMenuContainer from './containers/TraditionalMenuContainer';
+import SideMenuContainer from './containers/SideMenuContainer'
 
 class App extends Component {
 
@@ -11,6 +13,7 @@ class App extends Component {
     };
 
     this.handleTraditionalMenuToggle = this.handleTraditionalMenuToggle.bind(this)
+    this.handleSideMenuToggle = this.handleSideMenuToggle.bind(this)
   }
 
   handleTraditionalMenuToggle(){
@@ -19,18 +22,38 @@ class App extends Component {
     })
   }
 
-  render() {
+  handleSideMenuToggle(){
+    this.setState({
+      sideMenuShow: !this.state.sideMenuShow
+    })
+  }
 
-    if (!this.state.traditionalMenuShow) {
-      return (
-        <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
-      )
-    }
+  render() {
 
     return (
       <div>
-      <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
-      <MainContainer/>
+      {!this.state.traditionalMenuShow &&
+        <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
+      }
+
+      {this.state.traditionalMenuShow &&
+        <div>
+        <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
+        <TraditionalMenuContainer/>
+        </div>
+      }
+
+      {!this.state.sideMenuShow &&
+        <p onClick={ this.handleSideMenuToggle}>Sides</p>
+      }
+
+      {this.state.sideMenuShow &&
+        <div>
+        <p onClick={ this.handleSideMenuToggle}>Sides</p>
+        <SideMenuContainer/>
+        </div>
+      }
+
       </div>
     );
   }
