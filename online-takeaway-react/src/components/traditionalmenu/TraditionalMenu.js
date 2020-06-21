@@ -10,7 +10,7 @@ const TraditionalMenu = ({traditionalMenu}) => {
     <div>
     <div className="flex-container">
       <p className="flex-item1">{traditionalMenu.name}</p>
-      <p className="flex-item2">Single Price: £{traditionalMenu.price}</p>
+      <p className="flex-item2">Price: £{traditionalMenu.price}</p>
       <button>ORDER</button>
     </div>
     </div>

@@ -3,6 +3,7 @@ import MainContainer from './containers/MainContainer';
 import TraditionalMenuContainer from './containers/TraditionalMenuContainer';
 import SideMenuContainer from './containers/SideMenuContainer';
 import DessertMenuContainer from './containers/DessertMenuContainer';
+import DrinkMenuContainer from './containers/DrinkMenuContainer';
 
 class App extends Component {
 
@@ -11,12 +12,14 @@ class App extends Component {
     this.state = {
       traditionalMenuShow: false,
       sideMenuShow: false,
-      dessertMenuShow: false
+      dessertMenuShow: false,
+      drinkMenuShow: false
     };
 
     this.handleTraditionalMenuToggle = this.handleTraditionalMenuToggle.bind(this)
     this.handleSideMenuToggle = this.handleSideMenuToggle.bind(this)
     this.handleDessertMenuToggle = this.handleDessertMenuToggle.bind(this)
+    this.handleDrinkMenuToggle = this.handleDrinkMenuToggle.bind(this)
   }
 
   handleTraditionalMenuToggle(){
@@ -34,6 +37,12 @@ class App extends Component {
   handleDessertMenuToggle(){
     this.setState({
       dessertMenuShow: !this.state.dessertMenuShow
+    })
+  }
+
+  handleDrinkMenuToggle(){
+    this.setState({
+      drinkMenuShow: !this.state.drinkMenuShow
     })
   }
 
@@ -71,6 +80,17 @@ class App extends Component {
         <div>
         <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
         <DessertMenuContainer/>
+        </div>
+      }
+
+      {!this.state.drinkMenuShow &&
+        <p onClick={ this.handleDrinkMenuToggle}>Drinks</p>
+      }
+
+      {this.state.drinkMenuShow &&
+        <div>
+        <p onClick={ this.handleDrinkMenuToggle}>Drinks</p>
+        <DrinkMenuContainer/>
         </div>
       }
 

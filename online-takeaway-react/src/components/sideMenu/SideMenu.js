@@ -10,7 +10,7 @@ const SideMenu = ({sideMenu}) => {
     <div>
     <div class="flex-container">
       <p class="flex-item1">{sideMenu.name}</p>
-      <p class="flex-item2">Single Price: £{sideMenu.price}</p>
+      <p class="flex-item2">Price: £{sideMenu.price}</p>
       <button>ORDER</button>
     </div>
     </div>

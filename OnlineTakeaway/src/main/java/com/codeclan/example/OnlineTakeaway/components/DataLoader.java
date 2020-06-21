@@ -108,7 +108,7 @@ public class DataLoader implements ApplicationRunner {
         TraditionalMenu friedPizzaCrunch = new TraditionalMenu("Fried Pizza Crunch", 5.90, 6.80, "Fried Pizza in batter");
         traditionalMenuRepository.save(friedPizzaCrunch);
 
-        SideMenu chips = new SideMenu("chips", 2.95, "");
+        SideMenu chips = new SideMenu("Chips", 2.95, "");
         sideMenuRepository.save(chips);
 
         SideMenu onionRings = new SideMenu("Onion Rings", 2.99, "6 onion rings");
