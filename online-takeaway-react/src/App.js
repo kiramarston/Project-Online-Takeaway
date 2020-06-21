@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import MainContainer from './containers/MainContainer';
+import UserContainer from './containers/UserContainer';
 
 class App extends Component {
 
   render() {
-    return <MainContainer/>
+    return (
+      <div>
+      <MainContainer/>
+      <UserContainer/>
+      </div>
+    )
   }
 }
 

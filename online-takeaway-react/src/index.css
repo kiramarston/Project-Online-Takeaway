@@ -27,3 +27,15 @@ ul {
 .flex-item2 {
   width:250px;
 }
+
+.flex-main-list {
+  width:650px;
+}
+
+.flex-order {
+  width: 300px;
+}
+
+.flex-empty-left {
+  width: 300px;
+}
