@@ -1,5 +1,6 @@
 package com.codeclan.example.OnlineTakeaway.components;
 
+import com.codeclan.example.OnlineTakeaway.controllers.DrinkMenuController;
 import com.codeclan.example.OnlineTakeaway.models.*;
 import com.codeclan.example.OnlineTakeaway.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     DessertMenuRepository dessertMenuRepository;
+
+    @Autowired
+    DrinkMenuRepository drinkMenuRepository;
 
 
     public DataLoader() {
@@ -127,6 +131,24 @@ public class DataLoader implements ApplicationRunner {
 
         DessertMenu chocolateIceCream = new DessertMenu("Chocolate Ice Cream", 4.49, "450ml tub of chocolate ice cream");
         dessertMenuRepository.save(chocolateIceCream);
+
+        DrinkMenu coke = new DrinkMenu("Coca-Cola Classic", 2.45, "1.25 litre bottle of Coca-Cola classic");
+        drinkMenuRepository.save(coke);
+
+        DrinkMenu dietCoke = new DrinkMenu("Diet Coke", 2.45, "1.25 litre bottle of Diet Coke");
+        drinkMenuRepository.save(dietCoke);
+
+        DrinkMenu irnBru = new DrinkMenu("Irn bru", 2.45, "1.25 litre bottle of Irn Bru");
+        drinkMenuRepository.save(irnBru);
+
+        DrinkMenu fanta = new DrinkMenu("Fanta Orange", 2.45, "1.25 litre bottle of Fanta Orange");
+        drinkMenuRepository.save(fanta);
+
+        DrinkMenu fantaLemon = new DrinkMenu("Fanta Lemon", 2.45, "1.25 litre bottle of Fanta Lemon");
+        drinkMenuRepository.save(fantaLemon);
+
+        DrinkMenu water = new DrinkMenu("Abbey Well Water(still)", 1.25, "500ml bottle of Abbey Well Water (still)");
+        drinkMenuRepository.save(water);
 
         User user = new User("Oscar", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
         User user2 = new User("Kira", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
