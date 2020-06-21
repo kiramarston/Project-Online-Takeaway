@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MainContainer from './containers/MainContainer';
 import TraditionalMenuContainer from './containers/TraditionalMenuContainer';
-import SideMenuContainer from './containers/SideMenuContainer'
+import SideMenuContainer from './containers/SideMenuContainer';
+import DessertMenuContainer from './containers/DessertMenuContainer';
 
 class App extends Component {
 
@@ -9,11 +10,13 @@ class App extends Component {
     super(props);
     this.state = {
       traditionalMenuShow: false,
-      sideMenuShow: false
+      sideMenuShow: false,
+      dessertMenuShow: false
     };
 
     this.handleTraditionalMenuToggle = this.handleTraditionalMenuToggle.bind(this)
     this.handleSideMenuToggle = this.handleSideMenuToggle.bind(this)
+    this.handleDessertMenuToggle = this.handleDessertMenuToggle.bind(this)
   }
 
   handleTraditionalMenuToggle(){
@@ -25,6 +28,12 @@ class App extends Component {
   handleSideMenuToggle(){
     this.setState({
       sideMenuShow: !this.state.sideMenuShow
+    })
+  }
+
+  handleDessertMenuToggle(){
+    this.setState({
+      dessertMenuShow: !this.state.dessertMenuShow
     })
   }
 
@@ -51,6 +60,17 @@ class App extends Component {
         <div>
         <p onClick={ this.handleSideMenuToggle}>Sides</p>
         <SideMenuContainer/>
+        </div>
+      }
+
+      {!this.state.dessertMenuShow &&
+        <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
+      }
+
+      {this.state.dessertMenuShow &&
+        <div>
+        <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
+        <DessertMenuContainer/>
         </div>
       }
 
