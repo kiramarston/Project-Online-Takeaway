@@ -5,6 +5,14 @@ import SideMenuContainer from './SideMenuContainer';
 import DessertMenuContainer from './DessertMenuContainer';
 import DrinkMenuContainer from './DrinkMenuContainer';
 
+const ShoppingCart = (props) => {
+    //if the shopping cart has no items, let user know the cart is empty.
+        return (
+            <div className="EmptyCart">
+                Nothing in Cart, please add something.
+            </div>)
+    }
+
 class MainContainer extends Component{
 
   constructor(props) {
@@ -13,13 +21,15 @@ class MainContainer extends Component{
       traditionalMenuShow: false,
       sideMenuShow: false,
       dessertMenuShow: false,
-      drinkMenuShow: false
+      drinkMenuShow: false,
+      shoppingCartArray: []
     };
 
     this.handleTraditionalMenuToggle = this.handleTraditionalMenuToggle.bind(this)
     this.handleSideMenuToggle = this.handleSideMenuToggle.bind(this)
     this.handleDessertMenuToggle = this.handleDessertMenuToggle.bind(this)
     this.handleDrinkMenuToggle = this.handleDrinkMenuToggle.bind(this)
+    this.addToShoppingCart = this.addToShoppingCart.bind(this)
   }
 
   handleTraditionalMenuToggle(){
@@ -44,6 +54,10 @@ class MainContainer extends Component{
     this.setState({
       drinkMenuShow: !this.state.drinkMenuShow
     })
+  }
+
+  addToShoppingCart(props){
+    this.state.shoppingCartArray.add(props)
   }
 
   render() {
@@ -105,6 +119,7 @@ class MainContainer extends Component{
             </div>
             <div className="flex-order">
               <p style={{textAlign : 'center'}}>Your Order</p>
+              <ShoppingCart/>
             </div>
           </div>
         )
