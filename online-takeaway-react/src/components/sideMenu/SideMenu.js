@@ -1,9 +1,13 @@
 import React, {Fragment} from 'react';
 
-const SideMenu = ({sideMenu}) => {
+const SideMenu = ({sideMenu, addToShoppingCart}) => {
 
   if (!sideMenu) {
     return "loading..."
+  }
+
+  const handleAdd = () => {
+    addToShoppingCart(sideMenu)
   }
 
   return (
@@ -11,7 +15,7 @@ const SideMenu = ({sideMenu}) => {
     <div class="flex-container">
       <p class="flex-item1">{sideMenu.name}</p>
       <p class="flex-item2">Price: £{sideMenu.price}</p>
-      <button>ORDER</button>
+      <button onClick={handleAdd}>ORDER</button>
     </div>
     </div>
   )

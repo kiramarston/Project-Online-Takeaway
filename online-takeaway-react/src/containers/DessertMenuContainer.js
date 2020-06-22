@@ -37,7 +37,8 @@ class DessertMenuContainer extends Component {
       <Switch>
 
       <Route render={(props) => {
-        return <DessertMenuList dessertMenu={this.state.dessertMenu}/>
+        return <DessertMenuList dessertMenu={this.state.dessertMenu}
+        addToShoppingCart={this.props.addToShoppingCart}/>
       }} />
 
       </Switch>

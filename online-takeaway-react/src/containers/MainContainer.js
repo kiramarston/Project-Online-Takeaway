@@ -110,7 +110,7 @@ class MainContainer extends Component{
               {this.state.sideMenuShow &&
                 <div>
                 <p onClick={ this.handleSideMenuToggle}>Sides</p>
-                <SideMenuContainer/>
+                <SideMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
@@ -121,7 +121,7 @@ class MainContainer extends Component{
               {this.state.dessertMenuShow &&
                 <div>
                 <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
-                <DessertMenuContainer/>
+                <DessertMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
@@ -132,7 +132,7 @@ class MainContainer extends Component{
               {this.state.drinkMenuShow &&
                 <div>
                 <p onClick={ this.handleDrinkMenuToggle}>Drinks</p>
-                <DrinkMenuContainer/>
+                <DrinkMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 

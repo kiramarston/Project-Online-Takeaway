@@ -37,7 +37,8 @@ class SideMenuContainer extends Component {
       <Switch>
 
       <Route render={(props) => {
-        return <SideMenuList sideMenu={this.state.sideMenu}/>
+        return <SideMenuList sideMenu={this.state.sideMenu}
+        addToShoppingCart={this.props.addToShoppingCart}/>
       }} />
 
       </Switch>

@@ -12,7 +12,8 @@ const SideMenuList = (props) => {
 	  return (
 	    <li key={index} className="component-item">
 	    <div className="component">
-	    <SideMenu sideMenu={sideMenu} />
+	    <SideMenu sideMenu={sideMenu}
+			addToShoppingCart={props.addToShoppingCart}/>
 	    </div>
 	    </li>
 	  )

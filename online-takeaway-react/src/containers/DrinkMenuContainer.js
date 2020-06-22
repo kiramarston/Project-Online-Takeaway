@@ -37,7 +37,8 @@ class DrinkMenuContainer extends Component {
       <Switch>
 
       <Route render={(props) => {
-        return <DrinkMenuList drinkMenu={this.state.drinkMenu}/>
+        return <DrinkMenuList drinkMenu={this.state.drinkMenu}
+        addToShoppingCart={this.props.addToShoppingCart}/>
       }} />
 
       </Switch>

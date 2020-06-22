@@ -12,7 +12,8 @@ const DessertMenuList = (props) => {
 	  return (
 	    <li key={index} className="component-item">
 	    <div className="component">
-	    <DessertMenu dessertMenu={dessertMenu} />
+	    <DessertMenu dessertMenu={dessertMenu}
+			addToShoppingCart={props.addToShoppingCart}/>
 	    </div>
 	    </li>
 	  )
