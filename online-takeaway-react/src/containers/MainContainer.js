@@ -13,17 +13,26 @@ const ShoppingCart = (props) => {
 
   const cart = props.cart.map((foodItem, index) => {
       //if the shopping cart has no items, let user know the cart is empty.
-        return (
-          <li key={index} className="component-item">
-          <div className="component">
-              <p>{foodItem.name} £{foodItem.price}</p>
-            </div>
-            </li>
-      )
-    })
 
-    return cart;
-  }
+            if (foodItem.isSupper) {
+              return (
+              <li key={index} className="component-item">
+              <div className="component">
+              <p>{foodItem.name} £{foodItem.supperPrice}</p>
+              </div>
+              </li>)
+
+            } else {
+              return (
+              <li key={index} className="component-item">
+              <div className="component">
+              <p>{foodItem.name} £{foodItem.price}</p>
+              </div>
+              </li>)
+    }
+  })
+  return cart;
+};
 
 class MainContainer extends Component{
 
@@ -93,45 +102,45 @@ class MainContainer extends Component{
             <div className="flex-main-list">
               <div>
               {!this.state.traditionalMenuShow &&
-                <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
+                <p className="food-bar" onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
               }
 
               {this.state.traditionalMenuShow &&
-                <div>
+                <div className="food-bar">
                 <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
                 <TraditionalMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
               {!this.state.sideMenuShow &&
-                <p onClick={ this.handleSideMenuToggle}>Sides</p>
+                <p className="food-bar" onClick={ this.handleSideMenuToggle}>Sides</p>
               }
 
               {this.state.sideMenuShow &&
                 <div>
-                <p onClick={ this.handleSideMenuToggle}>Sides</p>
+                <p className="food-bar" onClick={ this.handleSideMenuToggle}>Sides</p>
                 <SideMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
               {!this.state.dessertMenuShow &&
-                <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
+                <p className="food-bar" onClick={ this.handleDessertMenuToggle}>Desserts</p>
               }
 
               {this.state.dessertMenuShow &&
                 <div>
-                <p onClick={ this.handleDessertMenuToggle}>Desserts</p>
+                <p className="food-bar" onClick={ this.handleDessertMenuToggle}>Desserts</p>
                 <DessertMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
               {!this.state.drinkMenuShow &&
-                <p onClick={ this.handleDrinkMenuToggle}>Drinks</p>
+                <p className="food-bar" onClick={ this.handleDrinkMenuToggle}>Drinks</p>
               }
 
               {this.state.drinkMenuShow &&
                 <div>
-                <p onClick={ this.handleDrinkMenuToggle}>Drinks</p>
+                <p className="food-bar" onClick={ this.handleDrinkMenuToggle}>Drinks</p>
                 <DrinkMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
@@ -139,7 +148,7 @@ class MainContainer extends Component{
               </div>
             </div>
             <div className="flex-order">
-              <p style={{textAlign : 'center'}}>Your Order</p>
+              <p className="food-bar" style={{textAlign : 'center'}}>Your Order</p>
               <ShoppingCart cart={this.state.shoppingCartArray}/>
             </div>
           </div>

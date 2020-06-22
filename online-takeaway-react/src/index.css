@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Hind Vadodara', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5;
 }
 
 code {
@@ -12,16 +14,28 @@ code {
     monospace;
 }
 
+li {
+  list-style-type: none;
+}
+
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .flex-container {
   display: flex;
+  padding-right: 35px;
 }
 
 .flex-item1 {
   width:450px;
+  font-style: bold;
+  text-decoration: underline;
+}
+
+.flex-item-description {
+  width:450px;
+  font-style: italic;
 }
 
 .flex-item2 {
@@ -38,4 +52,23 @@ ul {
 
 .flex-empty-left {
   width: 300px;
+}
+
+.food-bar {
+  background-color: white;
+  border-style: solid;
+  padding-left: 10px;
+}
+
+.flex-container > div {
+  margin: 50px;
+}
+
+hr {
+  border:none;
+  border-top:1px dotted #808080;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+  width:100%;
 }

@@ -7,7 +7,23 @@ const TraditionalMenu = ({traditionalMenu, addToShoppingCart, addSupperToShoppin
   }
 
   const handleAdd = () => {
-    addToShoppingCart(traditionalMenu)
+    let newOrder = {
+      "name": traditionalMenu.name,
+      "description": traditionalMenu.description,
+      "price": traditionalMenu.price,
+      "isSupper": false,
+    }
+    addToShoppingCart(newOrder);
+  }
+
+  const handleAddSupper = () => {
+    let newOrder = {
+      "name": traditionalMenu.name,
+      "description": traditionalMenu.description,
+      "supperPrice": traditionalMenu.supperPrice,
+      "isSupper": true,
+    }
+    addToShoppingCart(newOrder);
   }
 
   return (
@@ -18,10 +34,11 @@ const TraditionalMenu = ({traditionalMenu, addToShoppingCart, addSupperToShoppin
       <button onClick={handleAdd}>ORDER</button>
     </div>
     <div className="flex-container">
-      <p className="flex-item1"></p>
+      <p className="flex-item-description">{traditionalMenu.description}</p>
       <p className="flex-item2">Supper Price: £{traditionalMenu.supperPrice}</p>
-      <button onClick={handleAdd}>ORDER</button>
+      <button onClick={handleAddSupper}>ORDER</button>
     </div>
+    <hr/>
     </div>
   )
 }
