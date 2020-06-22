@@ -12,7 +12,8 @@ const TraditionalMenuList = (props) => {
 	  return (
 	    <li key={index} className="component-item">
 	    <div className="component">
-	    <TraditionalMenu traditionalMenu={traditionalMenu} />
+	    <TraditionalMenu traditionalMenu={traditionalMenu}
+			addToShoppingCart={props.addToShoppingCart}/>
 	    </div>
 	    </li>
 	  )

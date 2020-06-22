@@ -6,12 +6,24 @@ import DessertMenuContainer from './DessertMenuContainer';
 import DrinkMenuContainer from './DrinkMenuContainer';
 
 const ShoppingCart = (props) => {
-    //if the shopping cart has no items, let user know the cart is empty.
+
+  if (props.cart.length === 0) {
+    return (<p>Loading...</p>)
+  }
+
+  const cart = props.cart.map((foodItem, index) => {
+      //if the shopping cart has no items, let user know the cart is empty.
         return (
-            <div className="EmptyCart">
-                Nothing in Cart, please add something.
-            </div>)
-    }
+          <li key={index} className="component-item">
+          <div className="component">
+              <p>{foodItem.name} £{foodItem.price}</p>
+            </div>
+            </li>
+      )
+    })
+
+    return cart;
+  }
 
 class MainContainer extends Component{
 
@@ -56,8 +68,17 @@ class MainContainer extends Component{
     })
   }
 
-  addToShoppingCart(props){
-    this.state.shoppingCartArray.add(props)
+  addToShoppingCart(shoppingItem){
+    // make a copy of the shoppingCartArray state,
+    let copiedShoppingCart = this.state.shoppingCartArray.map((foodItem) => foodItem)
+    // let copiedShoppingCart = [...shoppingCartArray]
+    // add new item to the copied array,
+    console.log(copiedShoppingCart)
+    copiedShoppingCart.push(shoppingItem)
+    // then save the copied array back to the array using setState
+    this.setState({
+      shoppingCartArray: copiedShoppingCart
+    })
   }
 
   render() {
@@ -78,7 +99,7 @@ class MainContainer extends Component{
               {this.state.traditionalMenuShow &&
                 <div>
                 <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
-                <TraditionalMenuContainer/>
+                <TraditionalMenuContainer addToShoppingCart={this.addToShoppingCart}/>
                 </div>
               }
 
@@ -119,7 +140,7 @@ class MainContainer extends Component{
             </div>
             <div className="flex-order">
               <p style={{textAlign : 'center'}}>Your Order</p>
-              <ShoppingCart/>
+              <ShoppingCart cart={this.state.shoppingCartArray}/>
             </div>
           </div>
         )

@@ -37,7 +37,9 @@ class TraditionalMenuContainer extends Component {
       <Switch>
 
       <Route render={(props) => {
-        return <TraditionalMenuList traditionalMenu={this.state.traditionalMenu}/>
+        return <TraditionalMenuList traditionalMenu={this.state.traditionalMenu}
+        addToShoppingCart={this.props.addToShoppingCart}
+        addSupperToShoppingCart={this.props.addSupperToShoppingCart}/>
       }} />
 
       </Switch>
