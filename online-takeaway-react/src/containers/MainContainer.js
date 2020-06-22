@@ -4,6 +4,7 @@ import TraditionalMenuContainer from './TraditionalMenuContainer';
 import SideMenuContainer from './SideMenuContainer';
 import DessertMenuContainer from './DessertMenuContainer';
 import DrinkMenuContainer from './DrinkMenuContainer';
+import Collapsible from 'react-collapsible';
 
 const ShoppingCart = (props) => {
 
@@ -97,56 +98,23 @@ class MainContainer extends Component{
       <Route exact path = "/menu" render = {(props) => {
         return (
           <div className="flex-container">
-            <div className="flex-empty-left">
-            </div>
-            <div className="flex-main-list">
-              <div>
-              {!this.state.traditionalMenuShow &&
-                <p className="food-bar" onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
-              }
 
-              {this.state.traditionalMenuShow &&
-                <div className="food-bar">
-                <p onClick={ this.handleTraditionalMenuToggle}>Traditional Menu</p>
-                <TraditionalMenuContainer addToShoppingCart={this.addToShoppingCart}/>
-                </div>
-              }
+          <Collapsible trigger="Traditional Menu">
+          <TraditionalMenuContainer addToShoppingCart={this.addToShoppingCart}/>
+          </Collapsible>
 
-              {!this.state.sideMenuShow &&
-                <p className="food-bar" onClick={ this.handleSideMenuToggle}>Sides</p>
-              }
+          <Collapsible trigger="Sides">
+          <SideMenuContainer addToShoppingCart={this.addToShoppingCart}/>
+          </Collapsible>
 
-              {this.state.sideMenuShow &&
-                <div>
-                <p className="food-bar" onClick={ this.handleSideMenuToggle}>Sides</p>
-                <SideMenuContainer addToShoppingCart={this.addToShoppingCart}/>
-                </div>
-              }
+          <Collapsible trigger="Desserts">
+          <DessertMenuContainer addToShoppingCart={this.addToShoppingCart}/>
+          </Collapsible>
 
-              {!this.state.dessertMenuShow &&
-                <p className="food-bar" onClick={ this.handleDessertMenuToggle}>Desserts</p>
-              }
-
-              {this.state.dessertMenuShow &&
-                <div>
-                <p className="food-bar" onClick={ this.handleDessertMenuToggle}>Desserts</p>
-                <DessertMenuContainer addToShoppingCart={this.addToShoppingCart}/>
-                </div>
-              }
-
-              {!this.state.drinkMenuShow &&
-                <p className="food-bar" onClick={ this.handleDrinkMenuToggle}>Drinks</p>
-              }
-
-              {this.state.drinkMenuShow &&
-                <div>
-                <p className="food-bar" onClick={ this.handleDrinkMenuToggle}>Drinks</p>
-                <DrinkMenuContainer addToShoppingCart={this.addToShoppingCart}/>
-                </div>
-              }
-
-              </div>
-            </div>
+          <Collapsible trigger="Drinks">
+          <DrinkMenuContainer addToShoppingCart={this.addToShoppingCart}/>
+          </Collapsible>
+          
             <div className="flex-order">
               <p className="food-bar" style={{textAlign : 'center'}}>Your Order</p>
               <ShoppingCart cart={this.state.shoppingCartArray}/>
