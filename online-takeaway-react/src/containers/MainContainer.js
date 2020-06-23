@@ -27,7 +27,7 @@ const ShoppingCart = (props) => {
               <div className="component">
               <button className="button-left" onClick={() => handleDelete(foodItem, index)}>x</button>
               <label className="delete-button-padding">{foodItem.name}</label>
-              <label className="price-right">£{foodItem.price}</label>
+              <label className="price-right">£{foodItem.price.toFixed(2)}</label>
               </div>
               </li>)
 
@@ -37,7 +37,7 @@ const ShoppingCart = (props) => {
               <div className="component">
               <button className="button-left" onClick={() => handleDelete(foodItem, index)}>x</button>
               <label className="delete-button-padding">{foodItem.name}</label>
-              <label className="price-right">£{foodItem.price}</label>
+              <label className="price-right">£{foodItem.price.toFixed(2)}</label>
               </div>
               </li>)
     }

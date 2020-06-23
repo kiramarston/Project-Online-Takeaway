@@ -126,14 +126,15 @@ hr {
   padding-left: 10px;
 }
 
+.button-left {
+  margin-left: 20px;
+}
+
 .price-right {
   float: right;
   margin-right: 20px;
 }
 
-.button-left {
-  margin-left: 20px;
-}
 
 .total-order-text {
   font-size: 20px;
@@ -144,4 +145,11 @@ hr {
   font-size: 20px;
   margin-right: 20px;
   float: right;
+}
+
+.order-button {
+  margin-top: 11px;
+  margin-left: 20px;
+  height: 30px;
+  width: 75px;
 }
