@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 const SideMenu = ({sideMenu, addToShoppingCart}) => {
 
@@ -12,9 +12,9 @@ const SideMenu = ({sideMenu, addToShoppingCart}) => {
 
   return (
     <div>
-    <div class="flex-container">
-      <p class="flex-item1">{sideMenu.name}</p>
-      <p class="flex-item2">Price: £{sideMenu.price}</p>
+    <div className="flex-container">
+      <p className="flex-item1">{sideMenu.name}</p>
+      <p className="flex-item2">Price: £{sideMenu.price}</p>
       <button onClick={handleAdd}>ORDER</button>
     </div>
     </div>

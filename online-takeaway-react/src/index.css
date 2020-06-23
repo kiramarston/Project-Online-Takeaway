@@ -28,13 +28,13 @@ ul {
 }
 
 .flex-item1 {
-  width:450px;
+  width:250px;
   font-style: bold;
   text-decoration: underline;
 }
 
 .flex-item-description {
-  width:450px;
+  width:250px;
   font-style: italic;
 }
 
@@ -43,11 +43,11 @@ ul {
 }
 
 .flex-main-list {
-  width:650px;
+  width:350px;
 }
 
 .flex-order {
-  width: 300px;
+  width: 400px;
 }
 
 .flex-empty-left {
@@ -71,4 +71,19 @@ hr {
   background-color:#fff;
   height:1px;
   width:100%;
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: flex;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+  float: right;
 }

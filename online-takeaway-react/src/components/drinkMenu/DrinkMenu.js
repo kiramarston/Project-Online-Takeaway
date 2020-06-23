@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 const DrinkMenu = ({drinkMenu, addToShoppingCart}) => {
 
@@ -12,9 +12,9 @@ const DrinkMenu = ({drinkMenu, addToShoppingCart}) => {
 
   return (
     <div>
-    <div class="flex-container">
-      <p class="flex-item1">{drinkMenu.name}</p>
-      <p class="flex-item2">Price: £{drinkMenu.price}</p>
+    <div className="flex-container">
+      <p className="flex-item1">{drinkMenu.name}</p>
+      <p className="flex-item2">Price: £{drinkMenu.price}</p>
       <button onClick={handleAdd}>ORDER</button>
     </div>
     </div>
