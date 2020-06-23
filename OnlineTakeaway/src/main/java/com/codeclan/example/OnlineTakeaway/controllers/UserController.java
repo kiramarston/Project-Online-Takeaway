@@ -10,35 +10,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/users")
 public class UserController {
 
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping(value = "/users")
     public ResponseEntity<List<User>> getAllUser(){
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/users/{id}")
     public ResponseEntity getUser(@PathVariable Long id) {
         return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(value = "/menu")
+    public ResponseEntity getUser(@RequestBody User user) {
+        return new ResponseEntity<>(userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/users")
     public ResponseEntity<User> postUser(@RequestBody User user) {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}")
+    @PatchMapping(value = "/users/{id}")
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/users/{id}")
     public ResponseEntity<User> deleteUser(@PathVariable Long id){
         User found = userRepository.getOne(id);
         userRepository.delete(found);

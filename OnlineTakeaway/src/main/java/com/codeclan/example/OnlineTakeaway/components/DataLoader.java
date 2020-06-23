@@ -151,7 +151,7 @@ public class DataLoader implements ApplicationRunner {
         drinkMenuRepository.save(water);
 
         User user = new User("Oscar", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
-        User user2 = new User("Kira", "Tsang", "123 waterloo st", "ohh@gmail.com", "password");
+        User user2 = new User("Kira", "Tsang", "123 waterloo st", "testing@gmail.com", "testing");
         userRepository.save(user);
         userRepository.save(user2);
         Order order = new Order(user);

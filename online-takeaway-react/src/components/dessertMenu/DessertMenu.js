@@ -14,9 +14,13 @@ const DessertMenu = ({dessertMenu, addToShoppingCart}) => {
     <div>
     <div className="flex-container">
       <p className="flex-item1">{dessertMenu.name}</p>
-      <p className="flex-item2">Price: £{dessertMenu.price}</p>
+      <p className="flex-item2">£{dessertMenu.price}</p>
       <button onClick={handleAdd}>ORDER</button>
     </div>
+    <div className="flex-container">
+      <p className="flex-item-description">{dessertMenu.description}</p>
+    </div>
+    <hr/>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Request from '../../helpers/request';
 
 class UserLogin extends Component {
 
@@ -8,15 +9,21 @@ class UserLogin extends Component {
       user: {
         email: "",
         password: ""
-      }
+      },
+      returnedUser: 0,
+      loginSuccessful: false
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.checkLoginStatus = this.checkLoginStatus.bind(this);
   }
   componentDidMount(){
     if (this.props.user) {
-      this.setState({user: {... this.props.user}})
+      this.setState({user: {...this.props.user}})
     }
+    // if () {
+    //   this.props.loginHandler()
+    // }
   }
 
   handleChange(event) {
@@ -26,16 +33,38 @@ class UserLogin extends Component {
     this.setState({user: user})
   }
 
-  handleSubmit(event) {
+  checkLoginStatus(){
+      if (this.state.returnedUser) {
+        this.props.loginHandler()
+        // this.setState({
+        //   loginSuccessful: true
+        // })}
+      }
+        console.log(this.state.loginSuccessful);
+      }
+
+  handleLogin(event) {
     event.preventDefault();
-    this.props.onCreate(this.state.user);
-  }
+    // make fetch request
+    const payload = {
+        email: this.state.user.email,
+        password: this.state.user.password
+    }
+
+    const request = new Request();
+    const userLoginPromise = request.post('/menu', payload)
+
+    Promise.all([userLoginPromise])
+    .then(data => this.setState({
+      returnedUser: data[0][0]
+    }, this.checkLoginStatus()))
+}
 
   render() {
     return(
       <div>
         <h3>Enter your login details</h3>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleLogin}>
         <input type="text" placeholder="Email" name="email" onChange={this.handleChange}
           value = {this.state.user.email}/>
         <input type="text" placeholder="Password" name="password" onChange={this.handleChange}
