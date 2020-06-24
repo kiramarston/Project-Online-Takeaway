@@ -101,6 +101,11 @@ class MainContainer extends Component{
     })
   }
 
+  saveTotal(){
+    const newTotal = this.state.shoppingCartTotal
+    localStorage.setItem('savedTotal', JSON.stringify(newTotal))
+  }
+
   render() {
 
       return(
@@ -121,12 +126,13 @@ class MainContainer extends Component{
         }
 
         return (
+          <body className="background-img">
           <div className="flex-container">
           <div className="flex-empty-left">
           </div>
           <div>
 
-          <div className="bar-spacing">
+          <div className="bar-spacing-top">
           <Collapsible className="food-bar" trigger="Traditional Menu">
           <TraditionalMenuContainer addToShoppingCart={this.addToShoppingCart}/>
           </Collapsible>
@@ -170,12 +176,13 @@ class MainContainer extends Component{
           </div>
           <div className="checkout-div">
           {this.state.shoppingCartArray.length > 0 &&
-          <a href="http://localhost:3000/payment" className="button">PAY</a>
+          <a href="http://localhost:3000/payment" onClick={this.saveTotal()} className="button">PAY</a>
           // <button className="checkout-button" >Checkout</button>
           }
           </div>
           </div>
           </div>
+          </body>
 
         )
       }}>

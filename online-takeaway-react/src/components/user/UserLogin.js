@@ -71,7 +71,8 @@ class UserLogin extends Component {
           value = {this.state.user.password}/>
         <button type="submit">Login</button>
         </form>
-        <a href="http://localhost:3000/users/new">New User click here</a>
+        <br/>
+        <a href="http://localhost:3000/users/new">Click here to register a new account</a>
       </div>
     )
   }

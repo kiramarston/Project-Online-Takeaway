@@ -38,9 +38,18 @@ class UserForm extends Component {
 
   render() {
     return(
-      <div>
+      <div className="padding">
         <h3>Create New Account</h3>
         <form onSubmit={this.handleSubmit}>
+        <div className="flex-container">
+        <div className="flex-labels">
+        <label>First name:</label>
+        <label>Last name:</label>
+        <label>Address:</label>
+        <label>Email:</label>
+        <label>Password:</label>
+        </div>
+        <div className="flex-inputs">
         <input type="text" placeholder="First Name" name="firstName" onChange={this.handleChange}
           value = {this.state.user.firstName}/>
         <input type="text" placeholder="Last Name" name="lastName" onChange={this.handleChange}
@@ -51,6 +60,8 @@ class UserForm extends Component {
           value = {this.state.user.email}/>
         <input type="password" placeholder="Password" name="password" onChange={this.handleChange}
           value = {this.state.user.password}/>
+        </div>
+        </div>
         <button type="submit">Create Account</button>
         </form>
       </div>

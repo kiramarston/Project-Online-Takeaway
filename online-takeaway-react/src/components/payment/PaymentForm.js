@@ -37,11 +37,7 @@ class PaymentForm extends Component {
 
   render() {
     return(
-      <div class="padding">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-
+      <form className="padding">
         <div class="row">
           <div>
             <h3>Billing Address</h3>
@@ -55,7 +51,7 @@ class PaymentForm extends Component {
             <div className="flex-inputs">
             <input type="text" id="fname" name="firstname" placeholder="Name"/>
             <input type="text" id="email" name="email" placeholder="john@example.com"/>
-            <input type="text" id="adr" name="address" placeholder="address"/>
+            <input type="text" id="adr" name="address" placeholder="Address"/>
             <input type="text" id="city" name="city" placeholder="City"/>
             </div>
             </div>
@@ -64,35 +60,26 @@ class PaymentForm extends Component {
           <h3>Payment</h3>
           <div className="flex-component">
           <div class="flex-labels">
-          <label for="fname">Accepted Cards</label>
           <label for="cname">Name on Card</label>
-          <label for="ccnum">Credit card number</label>
+          <label for="ccnum">Card number</label>
           <label for="expmonth">Expiry Date</label>
           <label for="cvv">CVV</label>
           </div>
           <div class="flex-inputs">
-          <input/>
           <input type="text" id="cname" name="cardname" placeholder="Name"/>
           <input type="text" id="ccnum" name="cardnumber" placeholder="xxxx-xxxx-xxxx-xxxx"/>
           <input type="text" id="expmonth" name="expmonth" placeholder="xx-xxxx"/>
           <input type="text" id="cvv" name="cvv" placeholder="xxx"/>
           </div>
           </div>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa"></i>
-              <i class="fab fa-cc-amex"></i>
-              <i class="fab fa-cc-mastercard"></i>
-              <i class="fab fa-cc-discover"></i>
-            </div>
         </div>
+        <br/>
         <label>
-          <input type="checkbox" name="sameadr"/> Shipping address same as billing
+          <input type="checkbox" checked="checked"/> Shipping address same as billing
         </label>
+        <h3>Total amount: £{JSON.parse(localStorage.getItem('savedTotal'))}</h3>
         <input type="submit" value="Submit Order" class="btn"/>
       </form>
-    </div>
-  </div>
-</div>
     )
   }
 }
