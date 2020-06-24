@@ -145,6 +145,7 @@ class MainContainer extends Component{
 
 
           <div className="flex-order">
+          <div>
             <p className="order-bar" style={{textAlign : 'center'}}>Your Order</p>
             <hr/>
             <ShoppingCart cart={this.state.shoppingCartArray}/>
@@ -157,7 +158,12 @@ class MainContainer extends Component{
             {this.state.shoppingCartArray.length > 0 &&
             <label className="total-amount">£{this.state.shoppingCartTotal}</label>
             }
-
+          </div>
+          <div className="checkout-div">
+          {this.state.shoppingCartArray.length > 0 &&
+          <button className="checkout-button">Checkout</button>
+          }
+          </div>
           </div>
           </div>
 

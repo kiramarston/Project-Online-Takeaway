@@ -29,6 +29,7 @@ ul {
 .flex-container {
   display: flex;
   padding-right: 35px;
+  align-items: flex-start
 }
 
 .flex-item1 {
@@ -55,12 +56,20 @@ ul {
 }
 
 .flex-order {
-  width: 400px;
+  flex-direction: column;
+  width: 375px;
   background-color: white;
   /* padding: 10px; */
   border-style: solid;
   border-color: #D3D3D3;
   border-width: 1px;
+  position: fixed;
+  left: 970px;
+  top: 100px;
+  max-height: 450px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  height: auto;
 }
 
 .flex-empty-left {
@@ -138,7 +147,7 @@ hr {
 
 .total-order-text {
   font-size: 20px;
-  margin-left: 200px;
+  margin-left: 180px;
 }
 
 .total-amount {
@@ -152,4 +161,10 @@ hr {
   margin-left: 20px;
   height: 30px;
   width: 75px;
+}
+
+.checkout-button {
+  margin-left: 288px;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
