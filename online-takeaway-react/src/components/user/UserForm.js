@@ -33,6 +33,7 @@ class UserForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onCreate(this.state.user);
+    this.setRedirect();
   }
 
   render() {
@@ -48,10 +49,8 @@ class UserForm extends Component {
           value = {this.state.user.address}/>
         <input type="text" placeholder="Email" name="email" onChange={this.handleChange}
           value = {this.state.user.email}/>
-        <input type="text" placeholder="Password" name="password" onChange={this.handleChange}
+        <input type="password" placeholder="Password" name="password" onChange={this.handleChange}
           value = {this.state.user.password}/>
-        <input type="number" placeholder="Card" name="cardNumber" onChange={this.handleChange}
-          value = {this.state.user.cardNumber}/>
         <button type="submit">Create Account</button>
         </form>
       </div>

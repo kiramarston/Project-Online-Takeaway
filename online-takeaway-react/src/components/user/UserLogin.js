@@ -57,20 +57,21 @@ class UserLogin extends Component {
     Promise.all([userLoginPromise])
     .then(data => this.setState({
       returnedUser: data[0][0]
-    }, this.checkLoginStatus()))
+    }, () => this.checkLoginStatus()))
 }
 
   render() {
     return(
-      <div>
+      <div className="padding">
         <h3>Enter your login details</h3>
         <form onSubmit={this.handleLogin}>
         <input type="text" placeholder="Email" name="email" onChange={this.handleChange}
           value = {this.state.user.email}/>
-        <input type="text" placeholder="Password" name="password" onChange={this.handleChange}
+        <input type="password" placeholder="Password" name="password" onChange={this.handleChange}
           value = {this.state.user.password}/>
         <button type="submit">Login</button>
         </form>
+        <a href="http://localhost:3000/users/new">New User click here</a>
       </div>
     )
   }

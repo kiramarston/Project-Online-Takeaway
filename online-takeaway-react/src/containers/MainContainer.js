@@ -4,9 +4,11 @@ import TraditionalMenuContainer from './TraditionalMenuContainer';
 import SideMenuContainer from './SideMenuContainer';
 import DessertMenuContainer from './DessertMenuContainer';
 import DrinkMenuContainer from './DrinkMenuContainer';
+import PaymentContainer from './PaymentContainer';
 import UserContainer from './UserContainer';
 import Collapsible from 'react-collapsible';
 import UserLogin from '../components/user/UserLogin';
+import UserForm from '../components/user/UserForm';
 
 const ShoppingCart = (props) => {
 
@@ -26,7 +28,7 @@ const ShoppingCart = (props) => {
               <li key={index} className="component-item">
               <div className="component">
               <button className="button-left" onClick={() => handleDelete(foodItem, index)}>x</button>
-              <label className="delete-button-padding">{foodItem.name}</label>
+              <label className="delete-button-padding">{foodItem.name} (Supper)</label>
               <label className="price-right">£{foodItem.price.toFixed(2)}</label>
               </div>
               </li>)
@@ -103,11 +105,18 @@ class MainContainer extends Component{
 
       return(
       <Router>
+      <Route exact path = "/payment" render = {(props) => {
+        return <PaymentContainer/>
+      }}>
+      </Route>
       <Route exact path = "/menu" render = {(props) => {
 
         if (!this.state.isLoggedIn) {
           return (
+            <div>
             <UserLogin loginHandler={this.loginHandler}/>
+            </div>
+
           )
         }
 
@@ -161,7 +170,8 @@ class MainContainer extends Component{
           </div>
           <div className="checkout-div">
           {this.state.shoppingCartArray.length > 0 &&
-          <button className="checkout-button">Checkout</button>
+          <a href="http://localhost:3000/payment" className="button">PAY</a>
+          // <button className="checkout-button" >Checkout</button>
           }
           </div>
           </div>

@@ -25,12 +25,12 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/menu")
+    @PostMapping(value = "/login")
     public ResponseEntity getUser(@RequestBody User user) {
         return new ResponseEntity<>(userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/users")
+    @PostMapping(value = "/menu")
     public ResponseEntity<User> postUser(@RequestBody User user) {
         userRepository.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
